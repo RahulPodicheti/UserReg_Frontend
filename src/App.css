@@ -1,0 +1,119 @@
+/* Full page dark gradient background */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form card with pink glow animation */
+.form-container {
+  background: #1c1c1c;
+  padding: 40px 35px;
+  border-radius: 20px;
+  width: 380px;
+  animation: fadeIn 1s ease, glow 2s infinite alternate;
+  border: 1px solid #ff69b4; /* base pink border */
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+}
+
+/* Glow animation */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+  }
+}
+
+/* Form heading */
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ff69b4; /* Pink heading */
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+/* Input group */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.input-group input {
+  width: 100%;
+  padding: 12px 10px 12px 5px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #555;
+  background: #1c1c1c;
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Input focus effect */
+.input-group input:focus {
+  border-bottom: 2px solid #ff69b4; /* Pink accent on focus */
+}
+
+/* Labels */
+.input-group label {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Label moves on focus or filled */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+  top: -15px;
+  font-size: 12px;
+  color: #ff69b4; /* Pink label on focus */
+}
+
+/* Button gradient - Instagram + pink */
+.btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #ff69b4);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.5);
+}
+
+/* Button hover effect */
+.btn:hover {
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.8);
+  transform: scale(1.05);
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Autofill fix */
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #1c1c1c inset;
+}
+*-
