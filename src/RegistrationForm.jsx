@@ -27,45 +27,46 @@ function RegistrationForm() {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit} className="registration-form">
-        <div className="input-group">
-          <input
-            type="text"
-            name="name"
-            value={user.name}
-            onChange={handleChange}
-            required
-          />
-          <label>Name</label>
-        </div>
+    <div>
+        <form onSubmit={handleSubmit} className="registration-form">
+          <div className="input-group">
+            <input
+              type="text"
+              name="name"
+              value={user.name}
+              onChange={handleChange}
+              required
+              placeholder="Name"
+            />
+          </div>
 
-        <div className="input-group">
-          <input
-            type="tel"
-            name="phone"
-            value={user.phone}
-            onChange={handleChange}
-            required
-          />
-          <label>Phone Number</label>
-        </div>
+          <div className="input-group">
+            <input
+              type="tel"
+              name="phone"
+              value={user.phone}
+              onChange={handleChange}
+              required
+              placeholder="Phone Number"
+            />
+          </div>
 
-        <div className="input-group">
-          <input
-            type="text"
-            name="district"
-            value={user.district}
-            onChange={handleChange}
-            required
-          />
-          <label>District</label>
-        </div>
+          <div className="input-group">
+            <input
+              type="text"
+              name="district"
+              value={user.district}
+              onChange={handleChange}
+              required
+              placeholder="District"
+            />
+          </div>
 
-        <button type="submit" className="btn">
-          Register
-        </button>
-      </form>
+          <button type="submit" className="btn">
+            Register
+          </button>
+        </form>
+      
     </div>
   );
 }
