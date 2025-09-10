@@ -9,46 +9,78 @@ function RegistrationForm() {
     district: "",
   });
 
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send data to backend
-    axios.post("http://localhost:8080/api/users/register", user)
-      .then(response => {
+    const API_URL = `${process.env.REACT_APP_API_URL}/register`;
+
+    axios
+      .post(API_URL, user)
+      .then((response) => {
         alert("Registration Successful!");
         setUser({ name: "", phone: "", district: "" });
         console.log(response.data);
       })
-      .catch(error => {
-        console.error("There was an error registering!", error);
+      .catch((error) => {
+        console.error("Error registering user!", error);
         alert("Error registering user. Try again.");
       });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="registration-form">
-      <div className="input-group">
-        <input type="text" name="name" value={user.name} onChange={handleChange} placeholder=" " required />
-        <label>Name</label>
-      </div>
+    <div className="form-wrapper">
+      <div className="form-box">
+        <h2 className="form-title">User Registration</h2>
+        <form onSubmit={handleSubmit} className="registration-form">
+          <div className="input-group">
+            <input
+              type="text"
+              name="name"
+              value={user.name}
+              onChange={handleChange}
+              placeholder=" "
+              required
+            />
+            <label>Name</label>
+          </div>
 
-      <div className="input-group">
-        <input type="tel" name="phone" value={user.phone} onChange={handleChange} placeholder=" " required />
-        <label>Phone Number</label>
-      </div>
+          <div className="input-group">
+            <input
+              type="tel"
+              name="phone"
+              value={user.phone}
+              onChange={handleChange}
+              placeholder=" "
+              required
+            />
+            <label>Phone Number</label>
+          </div>
 
-      <div className="input-group">
-        <input type="text" name="district" value={user.district} onChange={handleChange} placeholder=" " required />
-        <label>District</label>
-      </div>
+          <div className="input-group">
+            <input
+              type="text"
+              name="district"
+              value={user.district}
+              onChange={handleChange}
+              placeholder=" "
+              required
+            />
+            <label>District</label>
+          </div>
 
-      <button type="submit" className="btn">Register</button>
-    </form>
+          <button type="submit" className="btn-submit">
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
