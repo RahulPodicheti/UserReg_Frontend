@@ -37,7 +37,6 @@ function RegistrationForm() {
   return (
     <div className="form-wrapper">
       <div className="form-box">
-        <h2 className="form-title">User Registration</h2>
         <form onSubmit={handleSubmit} className="registration-form">
           <div className="input-group">
             <input
